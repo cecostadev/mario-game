@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.game-board {
+    width: 100%;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(#87ceeb, white);
+}
+
+.terrain {
+    background-image: url(../images/ground.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.pipe {
+    position: absolute;
+    bottom: 0;
+    width: 70px;
+    right: 1380px;
+    animation: pipe-animation 3s infinite linear;
+}
+
+.mario {
+    width: 120px;
+    position: absolute;
+    bottom:0;
+}
+
+.jump {
+    animation: jump 500ms ease-in-out;
+}
+
+.clouds {
+    width: 350px;
+    position: absolute;
+    top: 80px;
+    animation: clouds infinite 12000ms linear;
+}
+
+.grass {
+    position: absolute;
+    bottom: -40px;
+}
+
+.grass:nth-child(n+2) {
+    left:800px;
+}
+
+.grass:nth-child(n+3) {
+    left:1200px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+
+}
+
+.modal-content {
+    background-image: url('../images/wodeen.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 140px;
+    margin: 15% auto;
+    width: 512px;
+    height: 340px;
+    text-align: center;
+    border-radius: 20px;
+    font-family: 'Cave', sans-serif;
+    color: brown;
+}
+
+.modal-content h4, h2 {
+    margin-top: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    margin-top: 5px;
+    background-color: brown;
+    padding: 5px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+@font-face {
+    font-family: 'Cave';
+    src: url('../fonts/Cave-Stone.ttf') format('truetype');
+}
+
+@Keyframes clouds {
+    from {
+        right:-220px;
+    } to {
+        right:100%;
+    }
+}
+
+@Keyframes pipe-animation {
+    from {
+        right: -40px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+@Keyframes jump {    
+    0% {
+        bottom:0;
+    }
+
+    50% {
+        bottom: 140px;
+    }
+
+    75% {
+      bottom: 100px;
+    }
+
+    100% {
+        bottom:0;
+    }
+}
